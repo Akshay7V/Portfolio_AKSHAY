@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Akshay | Java Full Stack Developer</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Space Grotesk',sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* BACKGROUND DOTS */
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background-image:
+      radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size:50px 50px;
+      z-index:-2;
+    }
+
+    /* GLOW */
+    .bg-glow{
+      position:fixed;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:rgba(34,211,238,.12);
+      filter:blur(120px);
+      z-index:-1;
+      top:-100px;
+      left:-100px;
+    }
+
+    .bg-glow2{
+      position:fixed;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:rgba(168,85,247,.12);
+      filter:blur(120px);
+      z-index:-1;
+      bottom:-100px;
+      right:-100px;
+    }
+
+    /* NAVBAR */
+    nav{
+      backdrop-filter:blur(16px);
+      background:rgba(121,109,109,0.3);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-link{
+      position:relative;
+      transition:.3s;
+    }
+
+    .nav-link:hover{
+      color:#22d3ee;
+    }
+
+    .nav-link::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0%;
+      height:2px;
+      background:#22d3ee;
+      transition:.3s;
+    }
+
+    .nav-link:hover::after{
+      width:100%;
+    }
+
+    /* GLASS */
+    .glass{
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(12px);
+    }
+
+    /* CARD HOVER */
+    .card-hover{
+      transition:.35s ease;
+    }
+
+    .card-hover:hover{
+      transform:translateY(-6px);
+      border-color:#22d3ee;
+      box-shadow:0 0 20px rgba(34,211,238,.08);
+    }
+
+    /* BUTTON */
+    .primary-btn{
+      background:#22d3ee;
+      color:black;
+      transition:.3s;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 25px rgba(34,211,238,.35);
+    }
+
+    /* SKILLS ICON */
+    .skill-box img{
+      width:55px;
+      height:55px;
+      margin:auto;
+      margin-bottom:16px;
+    }
+
+    /* SOCIAL */
+    .social-icon{
+      width:55px;
+      height:55px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.3s;
+    }
+
+    .social-icon:hover{
+      border-color:#22d3ee;
+      transform:translateY(-5px);
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+      h1{
+        font-size:3.5rem !important;
+      }
+
+      h2{
+        font-size:2.5rem !important;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- GLOW -->
+  <div class="bg-glow"></div>
+  <div class="bg-glow2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50">
+
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+      <h1 class="text-3xl font-bold text-cyan-400">
+        AV
+      </h1>
+
+      <div class="hidden md:flex items-center gap-10 text-sm font-medium">
+
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <!-- <a href="#skills" class="nav-link">Skills</a> -->
+        <a href="#projects" class="nav-link">Projects</a>
+        <!-- <a href="#education" class="nav-link">Education</a> -->
+        <a href="#contact" class="nav-link">Contact</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex items-center px-6">
+
+    <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-20 items-center hero-grid">
+
+      <!-- LEFT -->
+      <div>
+
+      
+
+        <h1 class="text-7xl font-bold leading-tight">
+          AKSHAY 
+          <span class="text-cyan-400">
+            V.
+          </span>
+        </h1>
+
+        <p class="text-gray-400 mt-8 text-lg leading-relaxed max-w-xl">
+          Full-Stack Java Developer.
+            <br>Building robust systems with precision.
+        </p>
+
+        <div class="flex gap-5 mt-10 hero-buttons">
+
+          <button class="primary-btn px-8 py-4 rounded-2xl font-semibold">
+            View Projects
+          </button>
+
+          <button class="glass px-8 py-4 rounded-2xl">
+            Download Resume
+          </button>
+
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="flex gap-4 mt-12 flex-wrap">
+
+          <a href="https://github.com/Akshay7V" class="social-icon">
+            <img src="data:image/png;base64,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" class="w-6">
+          </a>
+
+          <a href="https://www.linkedin.com/in/akshay-v-7733192a7/" class="social-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="w-6">
+          </a>
+
+          <a href="#" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" class="w-6 bg-white rounded">
+          </a>
+
+          <a href="#" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" class="w-6">
+          </a>
+
+          <a href="#" class="social-icon">
+            <img src="data:image/png;base64,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" class="w-6 rounded-full">
+          </a>
+
+          <a href="#" class="social-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6">
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="glass rounded-[40px] p-8 card-hover">
+
+<pre class="text-sm text-gray-300 leading-8 overflow-x-auto">
+public class Developer {
+
+  private String name;
+
+  public Developer(String name) {
+      this.name = name;
+  }
+
+  public String getName() {
+      return name;
+  }
+
+}
+</pre>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="about" class="py-28 px-6">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- LEFT -->
+    <div>
+
+      <h2 class="text-5xl font-bold mb-8">
+        About Me
+      </h2>
+
+      <p class="text-gray-400 text-lg leading-relaxed mb-8">
+     Computer Science student skilled in Java, MySQL and web development. Experienced as a Full-Stack Developer Intern, with a background in building applications and leading campus initiatives. Strong communicator with hands-on expertise in RESTful APIs, backend operations, and cloud basics (AWS). Quick learner dedicated to teamwork, problem-solving, and continuous growth.
+      </p>
+
+      
+      <div> <h2 class="text-5xl font-bold mb-8">Experience & LeaderShip</h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+Full-Stack Java Developer Intern<br>
+Meta Loop(Remote)<br>
+
+Nov 2025 - Dec 2025<br>
+Developed "Student Management System", a robust full-stack management platform using Java, Spring Boot, and MySQL.
+Implemented RESTful APIs and MVC architecture for seamless data handling.
+Collaborated with a 4-member agile team to optimize backend efficiency and frontend responsiveness.</p>
+
+    </div>
+
+    </div>
+    
+
+    
+
+  </div>
+
+</section>
+  <!-- SKILLS -->
+  <section id="skills" class="py-28 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <h2 class="text-5xl font-bold text-center mb-16">
+        Technical Skills
+      </h2>
+
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+
+        <!-- Programming -->
+        <div class="glass rounded-3xl p-8 card-hover">
+
+          <h3 class="text-3xl font-bold text-center mb-10 text-cyan-300">
+            Programming
+          </h3>
+
+          <div class="grid grid-cols-2 gap-5">
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+              <p>Java</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+              <p>MySQL</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Frontend -->
+        <div class="glass rounded-3xl p-8 card-hover">
+
+          <h3 class="text-3xl font-bold text-center mb-10 text-cyan-300">
+            Frontend
+          </h3>
+
+          <div class="grid grid-cols-2 gap-5">
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+              <p>HTML</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+              <p>CSS</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box col-span-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+              <p>JavaScript</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Backend -->
+        <div class="glass rounded-3xl p-8 card-hover">
+
+          <h3 class="text-3xl font-bold text-center mb-10 text-orange-300">
+            Backend
+          </h3>
+
+          <div class="grid grid-cols-2 gap-5">
+
+            <div class="glass rounded-2xl p-6 text-center skill-box col-span-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">
+              <p>Spring Boot</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg">
+              <p>JPA</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn-icons-png.flaticon.com/512/2165/2165004.png">
+              <p>REST API</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Tools -->
+        <div class="glass rounded-3xl p-8 card-hover">
+
+          <h3 class="text-3xl font-bold text-center mb-10">
+            Tools
+          </h3>
+
+          <div class="grid grid-cols-2 gap-5">
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+              <p>Git</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="bg-white rounded-full">
+              <p>GitHub</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg">
+              <p>Postman</p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 text-center skill-box">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
+              <p>AWS</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  
+
+  <!-- Education -->
+ <!-- EDUCATION & CERTIFICATIONS -->
+<section id="education" class="py-28 px-6">
+
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+
+    <!-- EDUCATION -->
+    <div>
+
+      <h2 class="text-5xl font-bold mb-14 flex items-center gap-4">
+        <span class="text-cyan-400">🎓</span>
+        Education
+      </h2>
+
+      <div class="relative border-l border-white/10 ml-5 space-y-14">
+
+        <!-- ITEM -->
+        <div class="relative pl-10">
+
+          <div class="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-cyan-400 border-4 border-[#050816] shadow-[0_0_15px_rgba(34,211,238,.5)]">
+          </div>
+
+          <h3 class="text-3xl font-bold leading-snug">
+            B.Tech Computer Science & Engineering
+          </h3>
+
+          <p class="text-gray-400 text-xl mt-2">
+            JCET College Ottapalam Palakkad
+          </p>
+
+          <p class="text-cyan-300 mt-4 text-lg font-medium">
+            2025 - 2028 • CGPA:____
+          </p>
+
+          <p class="text-gray-500 mt-3 leading-relaxed">
+            Focused on Java Full Stack Development,
+            Backend Systems, and Modern Web Technologies.
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="relative pl-10">
+
+          <div class="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-cyan-400 border-4 border-[#050816] shadow-[0_0_15px_rgba(34,211,238,.5)]">
+          </div>
+
+          <h3 class="text-3xl font-bold leading-snug">
+            Diploma Computer Science & Engineering
+          </h3>
+
+          <p class="text-gray-400 text-xl mt-2">
+            GPTC Shoranur  Palakkad
+          </p>
+
+          <p class="text-cyan-300 mt-4 text-lg font-medium">
+            2022 - 2025 • CGPA: 7.8
+          </p>
+
+       
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="relative pl-10">
+
+          <div class="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-cyan-400 border-4 border-[#050816] shadow-[0_0_15px_rgba(34,211,238,.5)]">
+          </div>
+
+          <h3 class="text-3xl font-bold leading-snug">
+            Higher Secondary Education
+          </h3>
+
+          <p class="text-gray-400 text-xl mt-2">
+            GHSS Vellinezhi  Palakkad
+          </p>
+
+          <p class="text-cyan-300 mt-4 text-lg font-medium">
+            2020 - 2022 • Score: 86%
+          </p>
+
+          <ul class="text-gray-500 mt-4 space-y-2 list-disc list-inside">
+
+            <p>Computer Science Stream</p>
+              
+            </li>
+
+          
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div>
+
+      <!-- CERTIFICATIONS -->
+      <h2 class="text-5xl font-bold mb-14 flex items-center gap-4">
+        <span class="text-cyan-400">🏅</span>
+        Certifications
+      </h2>
+
+      <div class="space-y-7">
+
+        <!-- CARD -->
+        <div class="glass rounded-3xl p-7 flex items-center gap-6 card-hover">
+
+          <div class="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center text-3xl">
+            ☁️
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold">
+             UpComming
+            </h3>
+
+            <p class="text-gray-400 mt-1">
+              
+            </p>
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="glass rounded-3xl p-7 flex items-center gap-6 card-hover">
+
+          <div class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center text-3xl">
+            📘
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold">
+              UpComming
+            </h3>
+
+            <p class="text-gray-400 mt-1">
+              
+            </p>
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="glass rounded-3xl p-7 flex items-center gap-6 card-hover">
+
+          <div class="w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-3xl">
+           
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold">
+              Java Foundation
+            </h3>
+
+            <p class="text-gray-400 mt-1">
+              Infosys Springboard
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="mt-16">
+
+        <h2 class="text-5xl font-bold mb-10">
+          Languages
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <div class="glass rounded-3xl p-6 card-hover">
+            <h3 class="text-2xl font-semibold">
+              English
+            </h3>
+
+            <p class="text-gray-400 mt-2">
+              Advanced
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 card-hover">
+            <h3 class="text-2xl font-semibold">
+              Malayalam
+            </h3>
+
+            <p class="text-gray-400 mt-2">
+              Native
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 card-hover">
+            <h3 class="text-2xl font-semibold">
+              Tamil
+            </h3>
+
+            <p class="text-gray-400 mt-2">
+              Intermediate
+            </p>
+          </div>
+
+          <div class="glass rounded-3xl p-6 card-hover">
+            <h3 class="text-2xl font-semibold">
+              Hindi
+            </h3>
+
+            <p class="text-gray-400 mt-2">
+              Intermediate
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+  <!--education section  -->
+
+  <!-- PROJECT -->
+  <section id="projects" class="py-28 px-6">
+
+    <div class="max-w-6xl mx-auto">
+
+      <h2 class="text-5xl font-bold text-center mb-16">
+        Featured Project
+      </h2>
+
+      <div class="glass rounded-[40px] overflow-hidden card-hover">
+
+        
+
+        <div class="p-10 ">
+          <div class="max-w-6xl mx-auto px-6">
+
+             <span class="inline-block px-5 py-2 rounded-full bg-cyan-500/10 text-cyan-300 text-sm font-medium mb-6">
+              SMS
+            </span>
+          <h3 class="text-4xl font-bold">
+            Student Management System
+          </h3>
+          </div>
+
+          <p class="text-gray-400 mt-6 leading-relaxed text-lg">
+            A complete web-based student management application
+            built using Java, Spring Boot, MySQL, and frontend technologies
+            with authentication and CRUD operations.
+          </p>
+
+          <div class="flex gap-4 flex-wrap mt-8">
+
+            <span class="px-5 py-2 rounded-full bg-cyan-500/10 text-cyan-300">
+              Java
+            </span>
+
+            <span class="px-5 py-2 rounded-full bg-cyan-500/10 text-cyan-300">
+              Spring Boot
+            </span>
+
+            <span class="px-5 py-2 rounded-full bg-cyan-500/10 text-cyan-300">
+              MySQL
+            </span>
+               <span class="px-5 py-2 rounded-full bg-cyan-500/10 text-cyan-300">
+              Rest API
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+  <section id="contact" class="py-28 px-6">
+
+  <div class="max-w-5xl mx-auto text-center">
+
+    <h2 class="text-5xl font-bold mb-8">
+      Contact Me
+    </h2>
+
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+      Open to internships, freelance opportunities,
+      and full stack development collaborations.
+    </p>
+
+    <div class="flex justify-center gap-5 flex-wrap mt-14">
+
+      <a href="mailto:yourmail@gmail.com"
+        class="glass px-8 py-4 rounded-2xl card-hover">
+        Email
+      </a>
+
+      <a href="#"
+        class="glass px-8 py-4 rounded-2xl card-hover">
+        LinkedIn
+      </a>
+
+      <a href="#"
+        class="glass px-8 py-4 rounded-2xl card-hover">
+        GitHub
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- FOOTER -->
+<footer class="border-t border-white/10 py-8 px-6 mt-20">
+
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+
+    <!-- LEFT -->
+    <p class="text-gray-400 text-sm text-center md:text-left">
+      © 2026 Akshay. All rights reserved.
+    </p>
+
+    <!-- CENTER -->
+    <p class="text-gray-500 text-sm text-center">
+      Built with HTML, Tailwind CSS & JavaScript
+    </p>
+
+    <!-- RIGHT -->
+    <p class="text-cyan-300 text-sm">
+      Java Full Stack Developer
+    </p>
+
+  </div>
+
+</footer>
+</body>
+</html>
